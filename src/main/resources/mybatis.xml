@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"></setting>
+    </settings>
+
+    <mappers>
+        <!--mapper resource="MyBatis/mapper/WorkflowBaseMapper.xml"/-->
+        <!--package name="*.mapper"></package 不可行，Mybatis不支持通配符，这是spring的ant匹配模式提供的-->
+        <!-- 需要把现在的配置文件都调整到WEB-INF/condfig/mapper目录下 -->
+        <!-- 在WEB-INF/config/mapper目录下配置的xml文件也不必加入这里的package -->
+    </mappers>
+</configuration>
