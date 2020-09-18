@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @version 1.0
  * Created by zhushubin  on 2020-09-18.
  * email:604580436@qq.com
- * @email 604580436@qq.com
+ * @email 604580436@qq.comgit
  */
 @ConfigurationProperties(prefix = "spring.datasource")
 @Getter
