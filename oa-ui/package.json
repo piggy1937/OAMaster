@@ -14,12 +14,12 @@
     "antd": "^4.6.4",
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",
-    "mobx-react-router": "F:\\Downloads\\Compressed\\hsweb-easy-orm-master\\OAMaster\\oa-ui>\"node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^4.1.0",
+    "mobx-react-router": "node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^4.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router": "F:\\Downloads\\Compressed\\hsweb-easy-orm-master\\OAMaster\\oa-ui>\"node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^5.2.0",
+    "react-router": "node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^5.2.0",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "F:\\IdeaProjects\\OAMaster\\oa-ui>\"node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "babel-preset-mobx": "F:\\IdeaProjects\\OAMaster\\oa-ui>\"node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^2.0.0"
+    "babel-preset-mobx": "node\"  \"C:\\Users\\user\\AppData\\Roaming\\npm\\\\node_modules\\npm\\bin\\npm-cli.js\" config get save-prefix \r\n^2.0.0"
   }
 }
