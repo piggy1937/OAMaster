@@ -8,6 +8,7 @@ export class AuthStore {
 
 	@action
 	setLogin(data: LoginViweModel) {
+		console.log(data)
 		this.userInfo = data;
 		localStorage.setItem('token', this.userInfo.token);
 		this.isLogined = true;
@@ -16,8 +17,9 @@ export class AuthStore {
 	@action
 	async loginAsync(username: string, password: string, remember: boolean = true) {
 		const response = await loginAsync(username, password);
-		if (response && response.data.code === 0) {
-			this.setLogin(response.data.data);
+		
+		if (response && response.data.code === 200) {
+			this.setLogin(response.data.result);
 		}
 	}
 

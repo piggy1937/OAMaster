@@ -6,6 +6,7 @@ import com.step.oa.service.WorkflowCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -38,6 +39,16 @@ public class WorkflowCategoryServiceImpl implements WorkflowCategoryService {
     @Override
     public Optional<WorkflowCategory> findById(Integer id) {
         Optional optional=Optional.ofNullable(workflowCategoryMapper.findWorkflowCategoryById(id));
+        return optional;
+    }
+
+    /***
+     * 查询所有流程分类
+     * @return list
+     */
+    @Override
+    public Optional<List<WorkflowCategory>> findList() {
+        Optional<List<WorkflowCategory>> optional = Optional.ofNullable(workflowCategoryMapper.findWorkflowCategoryList());
         return optional;
     }
 }

@@ -4,6 +4,9 @@ import { Button } from 'antd';
 import { observer } from 'mobx-react';
 import counterContext from '../../stores/counter.store';
 
+import LeftSide from './LeftSide'
+
+
 const Home: React.FC = () => {
 	const counter = useContext(counterContext);
 
@@ -13,11 +16,7 @@ const Home: React.FC = () => {
 
 	return (
 		<MainContent>
-			<span>首页页面</span>
-			<span>
-				数量: {counter.count} === {counter.total}{' '}
-			</span>
-			<Button onClick={onClick}>点击</Button>
+			<LeftSide></LeftSide>
 		</MainContent>
 	);
 };

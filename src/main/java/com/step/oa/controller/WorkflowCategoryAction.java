@@ -2,11 +2,15 @@ package com.step.oa.controller;
 
 import com.step.oa.entity.WorkflowCategory;
 import com.step.oa.service.WorkflowCategoryService;
+import com.step.utils.WrapMapper;
+import com.step.utils.Wrapper;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -16,7 +20,7 @@ import java.util.Optional;
  * email:604580436@qq.com
  * @email 604580436@qq.com
  */
-@RestController("workflowCategoryController")
+@RestController("workflowCategoryAction")
 @RequestMapping("/workflow_category")
 public class WorkflowCategoryAction {
     @Autowired
@@ -50,5 +54,10 @@ public class WorkflowCategoryAction {
 
 
         return workflowCategory.toString();
+    }
+    @GetMapping("/all")
+    public Wrapper all(){
+        List<WorkflowCategory> workflowCategorys= workflowCategoryService.findList().orElse(Collections.emptyList());
+        return WrapMapper.ok(workflowCategorys);
     }
 }

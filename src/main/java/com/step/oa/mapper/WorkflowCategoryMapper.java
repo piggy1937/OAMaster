@@ -3,6 +3,7 @@ package com.step.oa.mapper;
 import com.step.oa.entity.WorkflowCategory;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -21,4 +22,6 @@ public interface WorkflowCategoryMapper {
     void insertWorkflowCategory(WorkflowCategory workflowCategory);
 
     WorkflowCategory findWorkflowCategoryById(Integer id);
+
+    List<WorkflowCategory> findWorkflowCategoryList();
 }

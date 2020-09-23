@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios';
 
 export interface ResponseViewModel<T> {
 	code: number;
-	data: T;
+	result: T;
 	msg: string;
 }
 

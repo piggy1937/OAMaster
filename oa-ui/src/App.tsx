@@ -6,6 +6,7 @@ import { createBrowserHistory } from 'history'
 import LayoutMaster from './layouts/LayoutMaster';
 import authContext from './stores/auth.store'
 import Login from './pages/login/Login'
+import Home from './pages/home'
 import './App.css';
 const browserHistory = createBrowserHistory()
 const routerStore = new RouterStore();
@@ -37,7 +38,7 @@ const App: React.FC = () => {
 		<Router history={history}>   
 			<Switch>
 				<PrivateRoute exact path="/">
-             <div>aaa</div>
+             		<Home/>
 				</PrivateRoute>
 				<PrivateRoute path="/about">
 				    <div>aaa</div>

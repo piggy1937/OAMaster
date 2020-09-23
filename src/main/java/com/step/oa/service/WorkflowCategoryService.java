@@ -2,6 +2,7 @@ package com.step.oa.service;
 
 import com.step.oa.entity.WorkflowCategory;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -20,4 +21,10 @@ public interface WorkflowCategoryService {
     void save(WorkflowCategory workflowCategory);
 
     Optional<WorkflowCategory> findById(Integer id);
+
+    /***
+     * 查询所有流程分类
+     * @return list
+     */
+    Optional<List<WorkflowCategory>> findList();
 }

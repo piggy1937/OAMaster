@@ -12,5 +12,8 @@
     <select id="findWorkflowCategoryById" parameterType="integer" resultMap="workflowCategoryMap">
         select id,name from  workflow_category where id=#{id}
     </select>
+    <select id="findWorkflowCategoryList"  resultMap="workflowCategoryMap">
+        select id,name from  workflow_category
+    </select>
 
 </mapper>
