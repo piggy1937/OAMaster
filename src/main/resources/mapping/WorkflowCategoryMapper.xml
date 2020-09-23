@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.step.oa.mapper.WorkflowCategoryMapper">
+    <resultMap id="workflowCategoryMap" type="com.step.oa.entity.WorkflowCategory">
+        <id column="id"     property="id" />
+        <id column="name"    property="name"  />
+    </resultMap>
+    <insert id="insertWorkflowCategory" parameterType="com.step.oa.entity.WorkflowCategory" useGeneratedKeys="true"
+            keyProperty="id">
+    INSERT INTO workflow_category(id,name) VALUES (#{id},#{name})
+</insert>
+    <select id="findWorkflowCategoryById" parameterType="integer" resultMap="workflowCategoryMap">
+        select id,name from  workflow_category where id=#{id}
+    </select>
+
+</mapper>
