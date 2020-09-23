@@ -4,6 +4,7 @@
 **/log/
 *.class
 oa-ui/node_modules
+oa-ui/build
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 .idea/
