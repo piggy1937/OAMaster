@@ -11,7 +11,8 @@ export interface WfCatgoryViweModel {
 	id:number,
 	name:string,
 	memo?:string,
-	orders?:number
+	orders?:number,
+	children: WfCatgoryViweModel[]
 }
 
 export function wfCatgorysAsync(): Promise<AxiosResponse<ResponseViewModel<WfCatgoryViweModel[]>>> {

@@ -1,18 +1,14 @@
 import React, { FC, useContext, useEffect, useRef } from 'react'
 import { Tree, Input } from 'antd';
 import wfcategoryContext from '../../stores/wfcategory.store';
-interface ItemType {
-    title: string,
-    key: string
-    children?: any,
-
-}
+import { observer } from 'mobx-react';
+import { WfCatgoryViweModel} from '../../api/wfcategory.api';
 const { Search } = Input;
-const loop = (data: ItemType[], searchValue: string): any => {
+const loop = (data: WfCatgoryViweModel[], searchValue: string): any => {
     return data.map(item => {
-        const index = item.title.indexOf(searchValue);
-        const beforeStr = item?.title.substr(0, index);
-        const afterStr = item.title.substr(index + searchValue.length);
+        const index = item.name.indexOf(searchValue);
+        const beforeStr = item?.name.substr(0, index);
+        const afterStr = item.name.substr(index + searchValue.length);
         const title =
             index > -1 ? (
                 <span>
@@ -21,14 +17,14 @@ const loop = (data: ItemType[], searchValue: string): any => {
                     {afterStr}
                 </span>
             ) : (
-                    <span>{item.title}</span>
+                    <span>{item.name}</span>
                 );
         if (item.children) {
-            return { title, key: item.key, children: loop(item.children, searchValue) };
+            return { title, key: item.name, children: loop(item.children, searchValue) };
         }
         return {
             title,
-            key: item.key,
+            key: item.id,
         };
 
     })
@@ -37,9 +33,7 @@ const LeftSide: FC = () => {
     const wfcatContent = useRef(useContext(wfcategoryContext));
     useEffect(() => {
         wfcatContent.current.fetchWfCatgorysAsync();
-    })
-
-     console.log('111111111',wfcatContent.current.wfCategorys)
+    },[])
     return (
         <div>
             <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,4 +48,4 @@ const LeftSide: FC = () => {
         </div>
     )
 }
-export default LeftSide
+export default observer(LeftSide)

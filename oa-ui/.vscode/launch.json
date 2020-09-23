@@ -1,0 +1,12 @@
+{
+    "name": "TS File",
+    "type": "node",
+    "request": "launch",
+    "runtimeArgs": [
+      "-r",
+      "ts-node/register",
+      "-r",
+      "tsconfig-paths/register"
+    ],
+    "args": ["${workspaceFolder}/src/index.tsx"]
+}
