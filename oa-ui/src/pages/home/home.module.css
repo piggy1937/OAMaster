@@ -1,6 +1,3 @@
-.bg-color{
-    background-color: aliceblue !important;
-}
-.site-tree-search-value{
-    color:yellow
-}
+.error {
+    background-color: #fff !important;
+  }
