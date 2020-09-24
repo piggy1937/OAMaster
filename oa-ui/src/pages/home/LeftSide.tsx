@@ -1,4 +1,5 @@
 
+import styles from './home.module.css'; 
 import React, { FC, useContext, useEffect, useRef } from 'react'
 import { Tree, Input } from 'antd';
 import wfcategoryContext from '../../stores/wfcategory.store';
@@ -8,25 +9,25 @@ const { Search } = Input;
 const loop = (data: WfCatgoryViweModel[], searchValue: string): any => {
    
     return data.map(item => {
-        const index = item.name.indexOf(searchValue);
-        const beforeStr = item?.name.substr(0, index);
-        const afterStr = item.name.substr(index + searchValue.length);
+        const index = item.title.indexOf(searchValue);
+        const beforeStr = item?.title.substr(0, index);
+        const afterStr = item.title.substr(index + searchValue.length);
         const title =
             index > -1 ? (
                 <span>
                     {beforeStr}
-                    <span className="site-tree-search-value">{searchValue}</span>
+                    <span className={styles.search_filter_act}>{searchValue}</span>
                     {afterStr}
                 </span>
             ) : (
-                    <span>{item.name}</span>
+                    <span>{item.title}</span>
                 );
         if (item.children) {
-            return { title, key: item.name, children: loop(item.children, searchValue) };
+            return { title, key: item.title, children: loop(item.children, searchValue) };
         }
         return {
             title,
-            key: item.id,
+            key: item.key,
         };
 
     })
@@ -42,9 +43,11 @@ const LeftSide: FC = () => {
                 wfcatContent.current.doChangeWd(e.target.value as string)
             }} />
             <Tree
-                //   onExpand={this.onExpand}
-                //   expandedKeys={expandedKeys}
-                //   autoExpandParent={autoExpandParent}
+                onExpand={(expandedKeys: React.ReactText[])=>{
+                    wfcatContent.current.onExpand(expandedKeys as string[])
+                }}
+                autoExpandParent={wfcatContent.current.autoExpandParent}
+                expandedKeys={wfcatContent.current.expandedKeys}
                 treeData={loop(wfcatContent.current.wfCategorys, wfcatContent.current.wd)}
             />
         </div>

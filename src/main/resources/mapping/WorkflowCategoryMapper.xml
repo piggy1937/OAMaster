@@ -4,16 +4,28 @@
     <resultMap id="workflowCategoryMap" type="com.step.oa.entity.WorkflowCategory">
         <id column="id"     property="id" />
         <id column="name"    property="name"  />
+        <collection property="workflowBaseList" column="id" ofType="com.step.oa.entity.WorkflowBase"
+        select="com.step.oa.mapper.WorkflowCategoryMapper.findWorkflowBasesByCid"
+        >
+        </collection>
     </resultMap>
-    <insert id="insertWorkflowCategory" parameterType="com.step.oa.entity.WorkflowCategory" useGeneratedKeys="true"
+    <resultMap id="workflowBaseMap" type="com.step.oa.entity.WorkflowBase">
+        <id column="id"     property="id" />
+        <id column="name"    property="name"  />
+    </resultMap>
+    <insert id="insertWorkflowCategory" parameterType="com.step.oa.entity.WorkflowCategory"
+            useGeneratedKeys="true"
             keyProperty="id">
-    INSERT INTO workflow_category(id,name) VALUES (#{id},#{name})
-</insert>
+        INSERT INTO workflow_category(id,name) VALUES (#{id},#{name})
+    </insert>
     <select id="findWorkflowCategoryById" parameterType="integer" resultMap="workflowCategoryMap">
         select id,name from  workflow_category where id=#{id}
     </select>
     <select id="findWorkflowCategoryList"  resultMap="workflowCategoryMap">
         select id,name from  workflow_category
+    </select>
+    <select id="findWorkflowBasesByCid"  parameterType="integer" resultMap="workflowBaseMap">
+        select id,name from  workflow_base where workflow_category = #{id}
     </select>
 
 </mapper>

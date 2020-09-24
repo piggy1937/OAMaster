@@ -3,6 +3,8 @@ package com.step.oa.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * @author zhushubin
  * @version 1.0
@@ -30,6 +32,9 @@ public class WorkflowCategory {
      * 排序
      */
     private Integer orders;
-
+    /***
+     * 流程定义表
+     */
+    private List<WorkflowBase> workflowBaseList;
 
 }

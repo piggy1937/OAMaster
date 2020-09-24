@@ -1,5 +1,7 @@
 package com.step.oa.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.step.utils.StringUtils;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +21,14 @@ import java.util.List;
 public class TreeNode implements Serializable{
     private String key; //主键
     private String title;//名称
-    private List<TreeNode> child;
+    @JsonIgnore
+    private String parentId;
+    private List<TreeNode> children;
+
+    public String getKey() {
+        if(StringUtils.isNullOrEmpty(parentId)){
+            return key;
+        }
+        return parentId+"_"+key;
+    }
 }

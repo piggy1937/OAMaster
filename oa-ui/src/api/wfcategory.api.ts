@@ -8,15 +8,17 @@ export interface ResponseViewModel<T> {
 }
 
 export interface WfCatgoryViweModel {
-	id:number,
-	name:string,
-	memo?:string,
-	orders?:number,
+	key:string,
+	title:string,
 	children: WfCatgoryViweModel[]
+}
+export interface DataItemViewModel{
+	key:string,
+	title:string
 }
 
 export function wfCatgorysAsync(): Promise<AxiosResponse<ResponseViewModel<WfCatgoryViweModel[]>>> {
-	return request.get('/workflow_category/all');
+	return request.get('/workflow_category/tree');
 }
 
 
