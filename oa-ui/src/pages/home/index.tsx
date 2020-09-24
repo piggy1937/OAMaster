@@ -1,4 +1,4 @@
-import './home.css'
+import styles from './home.module.css'
 import React, { useContext } from 'react';
 import MainContent from '../../layouts/compnents/MainContent';
 import { Layout } from 'antd';
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 	return (
 		<MainContent>
 			 <Layout>
-				<Sider className={'bg-color'}><LeftSide/></Sider>
+				<Sider className={styles.bgColor}><LeftSide/></Sider>
 				<Content>main content</Content>
 			</Layout>
 			

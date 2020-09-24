@@ -1,3 +1,4 @@
+import './home.module.css'
 import React, { FC, useContext, useEffect, useRef } from 'react'
 import { Tree, Input } from 'antd';
 import wfcategoryContext from '../../stores/wfcategory.store';
@@ -5,6 +6,7 @@ import { observer } from 'mobx-react';
 import { WfCatgoryViweModel} from '../../api/wfcategory.api';
 const { Search } = Input;
 const loop = (data: WfCatgoryViweModel[], searchValue: string): any => {
+   
     return data.map(item => {
         const index = item.name.indexOf(searchValue);
         const beforeStr = item?.name.substr(0, index);
@@ -36,7 +38,7 @@ const LeftSide: FC = () => {
     },[])
     return (
         <div>
-            <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            <Search style={{ marginBottom: 8 }} placeholder="Search" value={wfcatContent.current.wd} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 wfcatContent.current.doChangeWd(e.target.value as string)
             }} />
             <Tree
