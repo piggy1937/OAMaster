@@ -1,24 +1,27 @@
 import React from 'react';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout,PageHeader } from 'antd';
 import { Link } from 'react-router-dom';
-
 interface Props {
-	breadcrumbs?: React.ReactNode;
+	title:string,
+	icons?: React.ReactNode
+	buttons?:any
+	routes?:Array<any>
 }
 
 const MainContent: React.FC<Props> = (props) => {
 	const { Content } = Layout;
-
+	const {icons,buttons,routes}=props
 	return (
-		<Content style={{ margin: '0 16px' }}>
-			<Breadcrumb style={{ margin: '16px 0' }}>
-				<Breadcrumb.Item>
-					<Link to="/"> 首页</Link>
-				</Breadcrumb.Item>
-				{props.breadcrumbs}
-			</Breadcrumb>
-			<div style={{ padding: 24, background: '#fff', minHeight: 720 }}>{props.children}</div>
-		</Content>
+		<PageHeader style={{background:'#fff',paddingTop:'0px',fontSize:'15px'}}
+		  title={props.title}
+		  className="site-page-header"
+		  backIcon={icons}
+		  onBack={()=>null}
+		  breadcrumb={ {routes} }
+		  extra={buttons}
+		>
+		   <div className="content">{props.children}</div>
+		</PageHeader>
 	);
 };
 

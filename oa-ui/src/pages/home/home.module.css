@@ -4,3 +4,12 @@
 .search_filter_act{
     color:red;
 }  
+.margin_left_6{
+    margin-left:6px ;
+    background-color: #fff;
+    padding: 4px;
+}
+.padding_top_8{
+    padding-top: 8px;
+    background-color: #fff !important;
+}
