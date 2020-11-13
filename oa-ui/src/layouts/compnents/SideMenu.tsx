@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Menu } from 'antd';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import { UserOutlined, MessageOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { menus } from '../../sysconfig'
 import styles from './SideMenu.module.scss'
@@ -12,11 +12,11 @@ interface IMenuInfo{
 	authority: string,
 	children?:Array<IMenuInfo>
 }
-const SideMenu: React.FC = () => {
+const SideMenu: React.FC = ({homeStore}:any) => {
 
 	const history = useHistory();
 	const location = useLocation();
-
+   const {addPane}=homeStore
 	const onExit = () => {
 		
 	};
@@ -26,7 +26,7 @@ const SideMenu: React.FC = () => {
                 if (!item.children || !item.children.length) {
                     return (
                         <Menu.Item key={item.name || item.name}>
-                             <div onClick={() =>{}}>{item.icon && <i className={item.icon} ></i>}<span>{item.name}</span></div> 
+                             <div onClick={() =>{addPane(item)}}>{item.icon && <i className={item.icon} ></i>}<span>{item.name}</span></div> 
                         </Menu.Item>
                     )
                 } else {
@@ -49,4 +49,4 @@ const SideMenu: React.FC = () => {
 	);
 };
 
-export default observer(SideMenu);
+export default inject('homeStore')(SideMenu);

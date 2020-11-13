@@ -1,3 +1,5 @@
+import React from 'react'
+const Demo = React.lazy(() => import('./pages/Demo'));
 const menus = [
     {
        name:'基础信息',
@@ -126,6 +128,11 @@ const menus = [
 
     }
 ]
+const tabs = {
+    buggetManager: <Demo />,
+}
+
 export {
-    menus
+    menus,
+    tabs
 }
