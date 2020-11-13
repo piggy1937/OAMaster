@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import MainContent from '../../layouts/compnents/MainContent';
 import { Layout,Button,Tabs,Card,Table } from 'antd';
-import { observer } from 'mobx-react';
+import { inject} from 'mobx-react';
 import counterContext from '../../stores/counter.store';
 import LeftSide from './LeftSide'
 import styles from './home.module.css'; 
@@ -32,8 +32,9 @@ const columns = [
   const rowSelection = {
 	
   };
-const Home: React.FC = () => {
-	const counter = useContext(counterContext);
+
+const Home: React.FC = ({counterStore,props}:any) => {
+	const counter = counterStore
 	const onClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
 		counter.inc(1);
 	};
@@ -71,4 +72,4 @@ const Home: React.FC = () => {
 	);
 };
 
-export default observer(Home);
+export default  inject('counterStore')(Home);

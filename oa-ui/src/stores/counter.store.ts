@@ -1,6 +1,4 @@
 import { observable, action, computed } from 'mobx';
-import { createContext } from 'react';
-
 export class CouterStore {
 	@observable count = 0;
 
@@ -15,4 +13,4 @@ export class CouterStore {
 	}
 }
 
-export default createContext<CouterStore>(new CouterStore());
+export default CouterStore;

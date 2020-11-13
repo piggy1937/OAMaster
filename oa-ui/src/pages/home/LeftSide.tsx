@@ -3,7 +3,7 @@ import styles from './home.module.css';
 import React, { FC, useContext, useEffect, useRef } from 'react'
 import { Tree, Input } from 'antd';
 import wfcategoryContext from '../../stores/wfcategory.store';
-import { observer } from 'mobx-react';
+import { inject} from 'mobx-react';
 import { WfCatgoryViweModel} from '../../api/wfcategory.api';
 const { Search } = Input;
 const loop = (data: WfCatgoryViweModel[], searchValue: string): any => {
@@ -32,25 +32,25 @@ const loop = (data: WfCatgoryViweModel[], searchValue: string): any => {
 
     })
 };
-const LeftSide: FC = () => {
-    const wfcatContent = useRef(useContext(wfcategoryContext));
+const LeftSide: FC = ({wfCategoryStore}:any) => {
+  
     useEffect(() => {
-        wfcatContent.current.fetchWfCatgorysAsync();
+       wfCategoryStore.fetchWfCatgorysAsync();
     },[])
     return (
         <div>
-            <Search style={{ marginBottom: 8 }} placeholder="Search" value={wfcatContent.current.wd} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                wfcatContent.current.doChangeWd(e.target.value as string)
+            <Search style={{ marginBottom: 8 }} placeholder="Search" value={wfCategoryStore.wd} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                wfCategoryStore.doChangeWd(e.target.value as string)
             }} />
             <Tree
                 onExpand={(expandedKeys: React.ReactText[])=>{
-                    wfcatContent.current.onExpand(expandedKeys as string[])
+                    wfCategoryStore.wfCategoryStoreonExpand(expandedKeys as string[])
                 }}
-                autoExpandParent={wfcatContent.current.autoExpandParent}
-                expandedKeys={wfcatContent.current.expandedKeys}
-                treeData={loop(wfcatContent.current.wfCategorys, wfcatContent.current.wd)}
+                autoExpandParent={wfCategoryStore.autoExpandParent}
+                expandedKeys={wfCategoryStore.expandedKeys}
+                treeData={loop(wfCategoryStore.wfCategorys, wfCategoryStore.wd)}
             />
         </div>
     )
 }
-export default observer(LeftSide)
+export default inject('wfCategoryStore')(LeftSide)

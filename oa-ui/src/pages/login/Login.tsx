@@ -3,35 +3,32 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Layout, notification } from 'antd';
 import LoginForm from './components/LoginForm';
 import { useHistory, useLocation } from 'react-router';
-import authContext from '../../stores/auth.store';
-import { observer } from 'mobx-react';
-
-const Login: React.FC = () => {
-	const auth = useRef(useContext(authContext));
+import { inject } from 'mobx-react'
+function Login ({props,authStore}:any) {
+	const auth = authStore
 	const history = useRef(useHistory());
 	const location = useRef(useLocation());
 
 	const onLogin = () => {
-		if (auth.current.isLogined) {
+		if (auth.isLogined) {
 			history.current.push('/');
 		}
 	};
 
 	useEffect(() => {
 		console.log(location.current);
-		auth.current.refreshTokenAsync().then(() => {
+		auth.refreshTokenAsync().then(() => {
 			onLogin();
 		});
 	}, []);
 
 	const onFinish = (values: any) => {
 		const { username, password, remember } = values;
-		auth.current
-			.loginAsync(username, password, remember)
+		auth.loginAsync(username, password, remember)
 			.then(() => {
 				onLogin();
 			})
-			.catch((e) => {
+			.catch((e:any) => {
 				notification['error']({
 					message: '登录失败',
 					description: e.message
@@ -52,4 +49,4 @@ const Login: React.FC = () => {
 	);
 };
 
-export default observer(Login);
+export default inject('authStore')(Login);

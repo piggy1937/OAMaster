@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { auth } from '../stores/auth.store';
+import globalStore from '../stores';
 import { message } from 'antd';
 
 const request = Axios.create({
@@ -9,8 +9,9 @@ const request = Axios.create({
 
 request.interceptors.request.use(
 	(config) => {
-		if (auth.isLogined) {
-			config.headers.Authorization = `Bearer ${auth.userInfo.token?.toString()}`;
+		const {authStore}=globalStore
+		if (authStore.isLogined) {
+			config.headers.Authorization = `Bearer ${authStore.userInfo.token?.toString()}`;
 		}
 
 		return config;

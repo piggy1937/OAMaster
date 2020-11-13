@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx';
 import { wfCatgorysAsync,WfCatgoryViweModel,DataItemViewModel} from '../api/wfcategory.api';
-import { createContext } from 'react';
 
 export class WorkflowCategoryStore {
     @observable wd:string = "";//搜索字段
@@ -81,5 +80,4 @@ export class WorkflowCategoryStore {
 
 }
 
-export const workflowCategoryStore = new WorkflowCategoryStore();
-export default createContext<WorkflowCategoryStore>(workflowCategoryStore);
+export default WorkflowCategoryStore;

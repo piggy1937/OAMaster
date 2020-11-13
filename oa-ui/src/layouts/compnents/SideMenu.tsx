@@ -6,14 +6,12 @@ import { UserOutlined, MessageOutlined, PoweroffOutlined } from '@ant-design/ico
 import authContext from '../../stores/auth.store';
 
 const SideMenu: React.FC = () => {
-	const auth = useContext(authContext);
+
 	const history = useHistory();
 	const location = useLocation();
 
 	const onExit = () => {
-		auth.logoutAsync().then(() => {
-			history.push('/login');
-		});
+		
 	};
 
 	return (

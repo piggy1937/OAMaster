@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx';
 import { loginAsync, LoginViweModel, refreshTokenAsync } from '../api/auth.api';
-import { createContext } from 'react';
+
 
 export class AuthStore {
 	@observable isLogined = false;
@@ -16,8 +16,9 @@ export class AuthStore {
 
 	@action
 	async loginAsync(username: string, password: string, remember: boolean = true) {
-		const response = await loginAsync(username, password);
 		
+		const response = await loginAsync(username, password);
+		console.log(response)
 		if (response && response.data.code === 200) {
 			this.setLogin(response.data.result);
 		}
@@ -42,5 +43,4 @@ export class AuthStore {
 	}
 }
 
-export const auth = new AuthStore();
-export default createContext<AuthStore>(auth);
+export default AuthStore

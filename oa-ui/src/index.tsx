@@ -5,10 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
-
+import { Provider } from "mobx-react";
+import stores from "./stores";
+import history from 'utils/history';
 ReactDOM.render(
   <ConfigProvider locale={zhCN}>
-		<App />
+    <Provider {...stores}>
+		<App history={history}/>
+    </Provider>
 	</ConfigProvider>
   , document.getElementById('root') as HTMLElement)
 
