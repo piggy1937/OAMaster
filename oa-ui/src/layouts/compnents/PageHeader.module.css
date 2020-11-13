@@ -1,0 +1,16 @@
+.headerRight {
+    float: 'right';
+    display: 'flex';
+    height: 64;
+    margin-right: 50;
+}
+.headerItem{
+    display: 'flex';
+    align-items: 'center';
+    padding: '0 20px';
+}
+.avatarBox{
+    background-color: red;
+    display: 'flex';
+    align-items: 'center';
+}

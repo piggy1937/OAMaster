@@ -6,6 +6,7 @@ import { inject} from 'mobx-react';
 import counterContext from '../../stores/counter.store';
 import LeftSide from './LeftSide'
 import styles from './home.module.css'; 
+import LayoutMaster from '../../layouts/LayoutMaster'
 import {
 	HomeOutlined
   } from '@ant-design/icons';
@@ -40,7 +41,7 @@ const Home: React.FC = ({counterStore,props}:any) => {
 	};
 
 	return (
-	
+	<LayoutMaster>
 		<MainContent  title='批量设置'  icons={<HomeOutlined/>}
 		buttons={[
 			<Button key="3" size='small'>添加</Button>,
@@ -68,7 +69,7 @@ const Home: React.FC = ({counterStore,props}:any) => {
 			</Layout>
 		</MainContent>
 		
-		
+		</LayoutMaster>
 	);
 };
 

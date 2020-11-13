@@ -3,8 +3,7 @@ import { Layout } from 'antd';
 
 import './LayoutMaster.css';
 import SideMenu from './compnents/SideMenu';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-
+import PageHeader from './compnents/PageHeader'
 const LayoutMaster: React.FC = (props) => {
 	const [ collapsed, setCollapsed ] = React.useState(false);
 	const { Header, Sider, Footer } = Layout;
@@ -21,10 +20,7 @@ const LayoutMaster: React.FC = (props) => {
 			</Sider>
 			<Layout>
 				<Header style={{ background: '#fff', padding: 0 }}>
-					{React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-						className: 'trigger',
-						onClick: onTrigger
-					})}
+					<PageHeader collapsed={collapsed} onTrigger={onTrigger}></PageHeader>
 				</Header>
 				{props.children}
 				<Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
