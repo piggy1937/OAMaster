@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import '../Login.css'
 interface Props {
 	onFinish: (values: any) => void;
 }
@@ -9,9 +9,8 @@ interface Props {
 const LoginForm: React.FC<Props> = (props) => {
 	return (
 		<Form
-			id="components-form-demo-normal-login"
+			className='normal-login'
 			name="loginForm"
-			className="login-form"
 			initialValues={{ remember: true }}
 			onFinish={props.onFinish}
 		>

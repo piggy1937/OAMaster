@@ -37,15 +37,15 @@ function Login ({props,authStore}:any) {
 	};
 
 	return (
-		<Layout>
-			<Layout.Content className="antd-pro-layouts-user-layout-container">
-				<div className="antd-pro-layouts-user-layout-content">
+		
+			
+				<div className="antd-pro-layouts-user-layout-container">
 					<div className="antd-pro-pages-user-login-style-main">
 						<LoginForm onFinish={onFinish} />
 					</div>
 				</div>
-			</Layout.Content>
-		</Layout>
+		
+	
 	);
 };
 

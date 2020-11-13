@@ -3,11 +3,13 @@
     flex-direction: column;
     height: 100vh;
     overflow: auto;
+    width: 100%;
     background-color: #f0f2f5;
-    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+    background-image: url("../../assets/img/loginBg.jpg");
     background-repeat: no-repeat;
-    background-position: center 110px;
     background-size: 100%;
+    align-items:center;/*由于flex-direction: column，因此align-items代表的是水平方向*/
+    justify-content: center;/*由于flex-direction: column，因此justify-content代表的是垂直方向*/
   }
   .antd-pro-layouts-user-layout-content {
     display: flex;
@@ -20,9 +22,11 @@
     width: 368px;
     margin: 0 auto;
   }
-  #components-form-demo-normal-login .login-form-forgot {
-    float: right;
+  .normal-login{
+    padding: 40px;
+    border-radius: 5px;
+    background: #fff;
   }
-  #components-form-demo-normal-login .login-form-button {
+  .normal-login .login-form-button {
     width: 100%;
   }
